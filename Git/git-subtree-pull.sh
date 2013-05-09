@@ -43,7 +43,7 @@ if [ ! -d "$path" ]
 fi
 
 git checkout ${branch}_split || exit 1
-git pull $2 $3 || exit 1
+git pull $remote $remoteBranch || exit 1
 lastMsg=`git log -1 --pretty=%s`
 git checkout ${branch} || exit 1
 git subtree merge -P $path --squash -m "Merged \'$lastMsg\' onto ${branch}" ${branch}_split || exit 1

@@ -42,7 +42,5 @@ if [ ! -d "$path" ]
 		exit 1
 fi
 
-git subtree split -P $1 -b ${branch}_split $remoteBranch || exit 1
-git checkout ${branch}_split || exit 1
-git push $2 ${branch}_split:$remoteBranch || exit 1
-git checkout ${branch} || exit 1
+git subtree split -P $path -b ${branch}_split || exit 1
+git push $remote ${branch}_split:$remoteBranch || exit 1
